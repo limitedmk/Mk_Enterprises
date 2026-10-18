@@ -1,24 +1,26 @@
-
-<!DOCTYPE html>
 <html lang="en-IN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#101a2c">
-<meta name="description" content="MK Enterprises, Hazratbal, Srinagar. Professional digital services, online forms, printing, scanning and application assistance.">
-<title>MK Enterprises | Your Digital Service Partner</title>
+<meta name="description" content="MK Enterprises, Hazratbal, Srinagar. Online digital services, printing, scanning, applications and document assistance.">
+<meta name="color-scheme" content="light">
+<title>MK Enterprises | Professional Digital Services</title>
 
 <style>
 :root {
     --navy: #101a2c;
-    --navy-light: #192942;
+    --navy2: #182943;
+    --navy3: #223653;
     --gold: #d9b878;
-    --gold-light: #f1dfb5;
+    --gold2: #f3e3bd;
     --white: #ffffff;
-    --background: #f7f8fa;
-    --text: #192437;
-    --muted: #707b8d;
-    --border: #e6e9ef;
+    --bg: #f6f7fa;
+    --text: #1b2638;
+    --muted: #68758a;
+    --border: #e3e7ee;
+    --shadow: 0 15px 45px rgba(16, 26, 44, .09);
+    --radius: 14px;
 }
 
 * {
@@ -29,59 +31,74 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 90px;
+    scroll-padding-top: 85px;
+    overflow-x: clip;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: var(--background);
+    width: 100%;
+    min-width: 320px;
+    overflow-x: clip;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    background: var(--bg);
     color: var(--text);
     line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
 }
 
 a {
-    text-decoration: none;
     color: inherit;
+    text-decoration: none;
 }
 
 button, input, select, textarea {
     font: inherit;
 }
 
-button, a {
+button {
     -webkit-tap-highlight-color: transparent;
 }
 
+img, svg {
+    max-width: 100%;
+}
+
 .container {
-    width: min(1160px, 90%);
-    margin: auto;
+    width: min(1160px, calc(100% - 48px));
+    margin-inline: auto;
 }
 
 .topbar {
-    background: #0a1220;
-    color: #d6dbe4;
-    padding: 9px 0;
+    background: #080f1c;
+    color: #d5dbe5;
     font-size: 11px;
-    letter-spacing: .5px;
+    letter-spacing: .7px;
 }
 
-.topbar-content {
+.topbar-inner {
+    min-height: 36px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     gap: 15px;
 }
 
-.header {
-    background: var(--navy);
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 1px solid #ffffff15;
+.topbar strong {
+    color: var(--gold2);
+    font-weight: 600;
 }
 
-.header-content {
-    min-height: 86px;
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(16, 26, 44, .97);
+    border-bottom: 1px solid #ffffff17;
+    backdrop-filter: blur(14px);
+}
+
+.header-inner {
+    min-height: 78px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -89,21 +106,22 @@ button, a {
 }
 
 .brand {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 13px;
+    flex-shrink: 0;
 }
 
 .brand-logo {
-    height: 49px;
-    width: 49px;
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--gold);
+    color: var(--gold2);
     display: grid;
     place-items: center;
-    border: 1px solid var(--gold);
-    color: var(--gold-light);
-    font-size: 20px;
-    font-weight: 800;
-    letter-spacing: -2px;
+    font-size: 19px;
+    font-weight: 900;
+    letter-spacing: -1.5px;
     position: relative;
 }
 
@@ -115,55 +133,62 @@ button, a {
 }
 
 .brand-name {
-    display: block;
-    font-size: 15px;
-    letter-spacing: 1.8px;
-    font-weight: 800;
     color: white;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    font-size: 15px;
+    display: block;
+    line-height: 1.5;
 }
 
 .brand-subtitle {
-    display: block;
-    font-size: 9px;
-    letter-spacing: 2px;
     color: var(--gold);
-    margin-top: 3px;
+    font-size: 9px;
+    letter-spacing: 1.6px;
+    display: block;
 }
 
 .nav {
     display: flex;
     align-items: center;
-    gap: 27px;
+    justify-content: flex-end;
+    gap: clamp(12px, 2vw, 26px);
+    color: #dbe1ec;
     font-size: 12px;
-    color: #d9deea;
+}
+
+.nav a {
+    transition: color .2s;
 }
 
 .nav a:hover {
-    color: var(--gold-light);
+    color: var(--gold2);
 }
 
-.nav .nav-button {
-    padding: 12px 17px;
+.nav .nav-cta {
     border: 1px solid var(--gold);
-    color: var(--gold-light);
+    color: var(--gold2);
+    padding: 10px 15px;
 }
 
 .menu-button {
     display: none;
-    background: none;
+    border: 1px solid #ffffff45;
+    background: transparent;
     color: white;
-    border: 1px solid #ffffff30;
-    padding: 8px 12px;
+    padding: 9px 13px;
     cursor: pointer;
+    border-radius: 6px;
+    font-size: 19px;
 }
 
 .hero {
-    background:
-        radial-gradient(ellipse at 82% 25%, #344562 0, transparent 36%),
-        linear-gradient(125deg, #101a2c, #14223a 70%, #1b2a43);
-    color: white;
     position: relative;
     overflow: hidden;
+    background:
+        radial-gradient(ellipse at 85% 18%, #3b4f70 0%, transparent 37%),
+        linear-gradient(125deg, var(--navy), #172742 72%, #20334f);
+    color: white;
 }
 
 .hero::before {
@@ -173,267 +198,276 @@ button, a {
     background-image:
         linear-gradient(#ffffff08 1px, transparent 1px),
         linear-gradient(90deg, #ffffff08 1px, transparent 1px);
-    background-size: 48px 48px;
+    background-size: 44px 44px;
     pointer-events: none;
 }
 
-.hero-content {
+.hero-inner {
     position: relative;
     z-index: 1;
-    min-height: 570px;
     display: grid;
-    grid-template-columns: 1.1fr .9fr;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
     align-items: center;
-    gap: 75px;
-    padding-top: 65px;
-    padding-bottom: 80px;
+    gap: clamp(28px, 5vw, 65px);
+    padding-block: clamp(45px, 7vw, 85px);
 }
 
 .eyebrow {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    color: var(--gold-light);
+    color: var(--gold2);
     letter-spacing: 2px;
     font-size: 10px;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .eyebrow::before {
     content: "";
-    width: 23px;
+    width: 25px;
     height: 1px;
     background: var(--gold);
 }
 
 .hero h1 {
-    font-size: clamp(43px, 5.2vw, 70px);
-    line-height: 1.1;
-    letter-spacing: -3px;
-    margin: 25px 0;
+    font-size: clamp(38px, 5.1vw, 68px);
+    line-height: 1.08;
+    letter-spacing: -2.5px;
+    margin: 23px 0;
+    overflow-wrap: anywhere;
 }
 
 .hero h1 span {
-    color: var(--gold-light);
+    color: var(--gold2);
 }
 
 .hero-description {
-    max-width: 510px;
-    color: #c0cada;
+    max-width: 520px;
     font-size: 14px;
+    color: #c5cedd;
     line-height: 2;
 }
 
-.hero-actions {
+.actions {
     display: flex;
-    align-items: center;
-    gap: 15px;
     flex-wrap: wrap;
-    margin-top: 32px;
+    gap: 12px;
+    margin-top: 29px;
 }
 
-.button {
+.btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    padding: 15px 22px;
-    font-size: 12px;
-    font-weight: bold;
+    gap: 9px;
+    min-height: 46px;
+    padding: 12px 19px;
     border: 1px solid transparent;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
     cursor: pointer;
-    transition: .2s ease;
+    transition: transform .2s, background .2s;
 }
 
-.button:hover {
+.btn:hover {
     transform: translateY(-2px);
 }
 
-.button-gold {
-    background: var(--gold-light);
+.btn-gold {
+    background: var(--gold2);
     color: var(--navy);
 }
 
-.button-gold:hover {
+.btn-gold:hover {
     background: white;
 }
 
-.button-outline {
-    border-color: #ffffff45;
+.btn-outline {
     color: white;
+    border-color: #ffffff50;
 }
 
-.button-outline:hover {
+.btn-outline:hover {
     border-color: var(--gold);
-    color: var(--gold-light);
+    color: var(--gold2);
 }
 
-.hero-note {
+.hero-points {
     display: flex;
-    gap: 20px;
     flex-wrap: wrap;
-    margin-top: 35px;
+    gap: 12px 20px;
+    color: #c7d0de;
     font-size: 10px;
-    color: #c7cfdd;
+    margin-top: 30px;
 }
 
-.hero-note span::first-letter {
+.hero-points span::first-letter {
     color: var(--gold);
 }
 
-.hero-panel {
+.service-preview {
+    min-width: 0;
     background: white;
     color: var(--text);
-    padding: 30px;
-    box-shadow: 0 30px 90px #0004;
-    position: relative;
+    padding: clamp(20px, 3vw, 32px);
+    box-shadow: 0 25px 75px #0004;
+    border-radius: 3px;
 }
 
-.panel-top {
+.preview-head {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
     border-bottom: 1px solid var(--border);
-    padding-bottom: 20px;
+    padding-bottom: 19px;
 }
 
-.panel-top strong {
-    font-size: 12px;
+.preview-head strong {
+    font-size: 11px;
     letter-spacing: 1px;
 }
 
-.panel-badge {
+.badge {
+    background: #f5efdf;
+    color: #85652d;
     font-size: 9px;
-    background: #f4eddf;
-    color: #8c6b31;
-    padding: 7px 10px;
+    padding: 6px 9px;
 }
 
-.panel-heading {
-    font-size: 25px;
-    line-height: 1.35;
-    margin: 25px 0 9px;
-    letter-spacing: -.7px;
+.service-preview h2 {
+    font-size: clamp(23px, 2.5vw, 30px);
+    line-height: 1.3;
+    margin-top: 22px;
+    letter-spacing: -.6px;
 }
 
-.panel-description {
-    font-size: 11px;
+.preview-description {
     color: var(--muted);
-    margin-bottom: 20px;
+    font-size: 11px;
+    margin: 8px 0 20px;
 }
 
-.panel-service {
+.preview-item {
     display: flex;
-    gap: 14px;
     align-items: center;
-    padding: 15px 0;
+    gap: 13px;
+    padding: 13px 0;
     border-top: 1px solid var(--border);
 }
 
-.panel-icon {
-    height: 39px;
-    width: 39px;
+.preview-icon {
+    width: 40px;
+    height: 40px;
     display: grid;
     place-items: center;
-    background: #f3efe6;
-    color: #9b7a3f;
-    font-size: 17px;
+    background: #f4efe5;
+    color: #98763b;
     flex-shrink: 0;
+    font-size: 18px;
 }
 
-.panel-service strong {
+.preview-item strong {
     display: block;
     font-size: 12px;
 }
 
-.panel-service small {
+.preview-item small {
     display: block;
     color: var(--muted);
     font-size: 10px;
     margin-top: 3px;
 }
 
-.panel-footer {
+.preview-footer {
     background: var(--navy);
-    color: #dce2ed;
-    padding: 15px;
-    margin: 20px -30px -30px;
-    font-size: 10px;
+    color: #dbe1ec;
+    padding: 13px;
+    margin: 18px calc(clamp(20px, 3vw, 32px) * -1) calc(clamp(20px, 3vw, 32px) * -1);
     text-align: center;
+    font-size: 10px;
 }
 
-.panel-footer span {
-    color: var(--gold-light);
+.preview-footer span {
+    color: var(--gold2);
 }
 
 .section {
-    padding: 90px 0;
+    padding-block: clamp(55px, 7vw, 88px);
 }
 
 .section-label {
-    color: #96743b;
+    color: #99763a;
     font-size: 10px;
-    font-weight: bold;
+    font-weight: 800;
     letter-spacing: 2px;
 }
 
 .section-title {
-    font-size: clamp(30px, 4vw, 43px);
-    line-height: 1.2;
-    letter-spacing: -1.5px;
-    margin-top: 13px;
     color: var(--navy);
+    font-size: clamp(29px, 3.7vw, 43px);
+    line-height: 1.2;
+    letter-spacing: -1.4px;
+    margin-top: 12px;
+    overflow-wrap: anywhere;
 }
 
 .section-title span {
-    color: #a17e42;
+    color: #a17d40;
 }
 
-.section-intro {
+.section-description {
+    max-width: 560px;
     color: var(--muted);
     font-size: 13px;
-    max-width: 520px;
     line-height: 1.9;
-    margin-top: 17px;
+    margin-top: 15px;
 }
 
-.section-header {
+.section-heading {
     display: flex;
     align-items: end;
     justify-content: space-between;
-    gap: 35px;
-    margin-bottom: 40px;
+    gap: 30px;
+    margin-bottom: 35px;
 }
 
-.services-section {
+.section-heading .section-description {
+    max-width: 450px;
+    margin-bottom: 3px;
+}
+
+.services {
     background: white;
 }
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 17px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
 }
 
 .service-card {
+    min-width: 0;
+    background: white;
     border: 1px solid var(--border);
-    padding: 27px;
-    background: #fff;
-    position: relative;
-    transition: .25s ease;
+    padding: 25px;
+    transition: transform .2s, box-shadow .2s, border-color .2s;
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
-    border-color: #d4b575;
-    box-shadow: 0 15px 40px #17233a0b;
+    transform: translateY(-4px);
+    border-color: var(--gold);
+    box-shadow: var(--shadow);
 }
 
-.service-card-top {
+.service-card-head {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 23px;
+    justify-content: space-between;
+    margin-bottom: 22px;
 }
 
 .service-icon {
@@ -441,153 +475,160 @@ button, a {
     height: 45px;
     display: grid;
     place-items: center;
-    background: #f4efe4;
-    color: #94713a;
+    background: #f5efe3;
+    color: #98753a;
     font-size: 21px;
 }
 
 .service-number {
-    color: #aeb4bf;
-    font-size: 11px;
+    color: #a5adba;
+    font-size: 10px;
+    letter-spacing: .7px;
 }
 
 .service-card h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 9px;
 }
 
 .service-card p {
-    color: var(--muted);
     font-size: 12px;
+    color: var(--muted);
     line-height: 1.9;
-    min-height: 68px;
 }
 
-.service-link {
-    display: inline-block;
-    margin-top: 17px;
-    color: #8b6a34;
-    font-size: 11px;
-    font-weight: bold;
+.service-select {
+    border: none;
     background: none;
-    border: 0;
+    color: #8d6c36;
+    font-size: 11px;
+    font-weight: 800;
+    margin-top: 17px;
     cursor: pointer;
+    text-align: left;
 }
 
-.service-link span {
-    margin-left: 8px;
+.service-select:hover {
+    color: var(--navy);
 }
 
-.disclaimer {
-    background: #f7f3e9;
-    border-left: 3px solid var(--gold);
-    padding: 18px 20px;
+.notice {
     margin-top: 25px;
-    color: #716750;
+    padding: 17px 20px;
+    background: #f8f3e8;
+    border-left: 3px solid var(--gold);
+    color: #75684e;
     font-size: 11px;
     line-height: 1.9;
 }
 
-.process-section {
-    background: var(--background);
+.process {
+    background: var(--bg);
 }
 
 .steps {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    margin-top: 40px;
-    border-top: 1px solid #dfe3ea;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 35px;
+    border-top: 1px solid #dfe4eb;
 }
 
 .step {
-    padding: 30px 28px 10px 0;
+    min-width: 0;
+    padding: 27px 25px 0 0;
 }
 
 .step + .step {
-    padding-left: 28px;
-    border-left: 1px solid #dfe3ea;
+    border-left: 1px solid #dfe4eb;
+    padding-left: 25px;
 }
 
 .step-number {
-    color: #a27e3e;
-    font-size: 12px;
-    font-weight: bold;
+    color: #a17d40;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
 }
 
 .step h3 {
-    font-size: 19px;
-    margin: 15px 0 9px;
+    font-size: 18px;
+    margin: 12px 0 8px;
 }
 
 .step p {
     color: var(--muted);
     font-size: 12px;
     line-height: 1.9;
-    max-width: 280px;
+    max-width: 290px;
 }
 
-.contact-section {
-    background: var(--navy);
+.contact {
+    background:
+        radial-gradient(ellipse at 15% 10%, #293d59 0, transparent 40%),
+        var(--navy);
     color: white;
 }
 
-.contact-layout {
+.contact-grid {
     display: grid;
-    grid-template-columns: .85fr 1.15fr;
-    gap: 75px;
+    grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+    gap: clamp(25px, 5vw, 65px);
     align-items: start;
 }
 
-.contact-section .section-title {
+.contact .section-title {
     color: white;
 }
 
-.contact-section .section-title span {
-    color: var(--gold-light);
+.contact .section-title span {
+    color: var(--gold2);
 }
 
-.contact-section .section-intro {
-    color: #c0cada;
+.contact .section-description {
+    color: #c2ccdc;
 }
 
-.contact-email {
-    margin-top: 30px;
-    padding: 20px;
-    border: 1px solid #ffffff22;
+.email-card {
     display: flex;
-    gap: 15px;
     align-items: center;
-    overflow-wrap: anywhere;
+    gap: 15px;
+    border: 1px solid #ffffff25;
+    padding: 18px;
+    margin-top: 27px;
+    min-width: 0;
 }
 
 .email-icon {
-    height: 43px;
     width: 43px;
-    border: 1px solid #d9b87877;
+    height: 43px;
     display: grid;
     place-items: center;
-    color: var(--gold-light);
     flex-shrink: 0;
+    border: 1px solid #d9b87880;
+    color: var(--gold2);
+    font-size: 18px;
 }
 
-.contact-email small {
+.email-card small {
     display: block;
-    color: #b4bfd0;
+    color: #b9c4d5;
     font-size: 9px;
     letter-spacing: 1px;
 }
 
-.contact-email strong {
-    color: var(--gold-light);
-    font-size: 12px;
+.email-card a {
     display: block;
-    margin-top: 5px;
+    color: var(--gold2);
+    font-size: 12px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
 }
 
 .privacy-note {
-    margin-top: 25px;
+    margin-top: 22px;
+    color: #b9c4d5;
     font-size: 11px;
-    color: #b4bfd0;
     line-height: 1.9;
 }
 
@@ -595,233 +636,236 @@ button, a {
     color: white;
 }
 
-.request-form {
+.form-card {
+    min-width: 0;
     background: white;
     color: var(--text);
-    padding: 32px;
+    padding: clamp(20px, 3vw, 32px);
+    box-shadow: 0 20px 60px #0002;
 }
 
 .form-heading {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
     gap: 10px;
-    padding-bottom: 20px;
+    padding-bottom: 18px;
     border-bottom: 1px solid var(--border);
-    margin-bottom: 20px;
 }
 
 .form-heading strong {
     font-size: 12px;
-    letter-spacing: .8px;
+    letter-spacing: .7px;
 }
 
 .form-heading small {
-    font-size: 10px;
     color: var(--muted);
+    font-size: 10px;
 }
 
-.request-form label {
+.form-field {
+    margin-top: 17px;
+}
+
+.form-field label {
     display: block;
+    margin-bottom: 7px;
     font-size: 11px;
-    font-weight: bold;
-    margin: 17px 0 8px;
+    font-weight: 700;
 }
 
-.request-form label span {
-    color: #9a7b43;
+.required {
+    color: #9a7538;
 }
 
-.request-form input:not([type="checkbox"]),
-.request-form select,
-.request-form textarea {
+.form-field input,
+.form-field select,
+.form-field textarea {
+    display: block;
     width: 100%;
-    padding: 13px 14px;
-    border: 1px solid #dce1e8;
-    background: #fff;
+    min-width: 0;
+    padding: 12px 13px;
+    border: 1px solid #dce1e9;
+    border-radius: 3px;
+    background: white;
     color: var(--text);
-    border-radius: 0;
     font-size: 12px;
 }
 
-.request-form input:focus,
-.request-form select:focus,
-.request-form textarea:focus {
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
     outline: 2px solid #d9b878;
     outline-offset: 1px;
 }
 
-.request-form textarea {
+.form-field textarea {
     resize: vertical;
     min-height: 100px;
 }
 
-.phone-wrap {
+.phone-box {
     display: flex;
-    border: 1px solid #dce1e8;
-}
-
-.phone-prefix {
-    background: #f1eee6;
-    padding: 12px;
-    font-size: 12px;
-    white-space: nowrap;
-}
-
-.phone-wrap input {
-    border: 0 !important;
+    width: 100%;
     min-width: 0;
+    border: 1px solid #dce1e9;
+}
+
+.phone-box span {
+    display: flex;
+    align-items: center;
+    background: #f2eee5;
+    padding: 0 12px;
+    white-space: nowrap;
+    font-size: 12px;
+}
+
+.phone-box input {
+    flex: 1;
+    width: 0;
+    border: 0;
 }
 
 .consent {
-    display: flex !important;
+    display: flex;
     align-items: flex-start;
-    gap: 10px;
-    font-weight: normal !important;
-    color: #687386;
+    gap: 9px;
+    margin-top: 19px;
+    color: var(--muted);
+    font-size: 11px;
     line-height: 1.8;
 }
 
 .consent input {
-    margin-top: 4px;
-    accent-color: #a17e42;
-}
-
-.consent span {
-    color: #687386 !important;
-    font-weight: normal;
+    flex-shrink: 0;
+    margin-top: 5px;
+    accent-color: #9a7538;
 }
 
 .submit-button {
     width: 100%;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
-.form-note {
+.form-note,
+.form-status {
+    margin-top: 12px;
     font-size: 10px;
-    color: #737d8e;
+    color: var(--muted);
     line-height: 1.8;
-    margin-top: 13px;
+    overflow-wrap: anywhere;
 }
 
 .form-status {
     font-size: 12px;
-    line-height: 1.7;
-    margin-top: 12px;
-    overflow-wrap: anywhere;
 }
 
-.about-section {
+.about {
     background: white;
 }
 
-.about-layout {
+.about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 65px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: center;
+    gap: clamp(25px, 5vw, 65px);
+}
+
+.about-copy {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 2;
+    margin-top: 18px;
 }
 
 .about-box {
     background: var(--navy);
     color: white;
-    padding: 35px;
+    padding: clamp(24px, 4vw, 38px);
     border-bottom: 3px solid var(--gold);
 }
 
 .about-box h3 {
-    color: var(--gold-light);
-    font-size: 21px;
-    margin-bottom: 15px;
+    color: var(--gold2);
+    font-size: 22px;
+    margin-bottom: 13px;
 }
 
 .about-box p {
+    color: #c3cddd;
     font-size: 12px;
-    color: #c0cada;
     line-height: 2;
-}
-
-.about-copy {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 2;
-    margin-top: 18px;
 }
 
 footer {
     background: #080f1c;
-    color: #b9c2d1;
-    padding: 30px 0;
+    color: #b9c3d2;
+    padding-block: 28px;
 }
 
-.footer-layout {
+.footer-grid {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    gap: 25px;
+    align-items: center;
     flex-wrap: wrap;
+    gap: 20px;
 }
 
 .footer-brand {
-    color: var(--gold-light);
-    font-weight: bold;
-    letter-spacing: 1px;
+    color: var(--gold2);
     font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
 }
 
 footer p {
     font-size: 10px;
-    line-height: 1.8;
+    line-height: 1.9;
 }
 
-footer a:last-child {
+footer a {
+    color: var(--gold2);
     font-size: 11px;
-    color: var(--gold-light);
 }
 
-@media (max-width: 900px) {
-    .hero-content {
-        gap: 35px;
-    }
-
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .contact-layout {
-        gap: 35px;
-    }
-}
-
-@media (max-width: 650px) {
+@media (min-width: 1500px) {
     .container {
-        width: 90%;
+        max-width: 1280px;
     }
 
-    .topbar-content {
-        font-size: 9px;
+    .hero-inner {
+        padding-block: 95px;
     }
+}
 
-    .topbar-content span:last-child {
-        text-align: right;
-    }
-
-    .header-content {
-        min-height: 74px;
-    }
-
-    .brand-logo {
-        width: 42px;
-        height: 42px;
+@media (max-width: 1000px) {
+    .nav {
+        gap: 13px;
+        font-size: 11px;
     }
 
     .brand-name {
-        font-size: 12px;
+        font-size: 13px;
     }
 
     .brand-subtitle {
         font-size: 8px;
-        letter-spacing: 1.3px;
+        letter-spacing: 1px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 760px) {
+    .container {
+        width: calc(100% - 36px);
+    }
+
+    .header-inner {
+        min-height: 70px;
     }
 
     .menu-button {
@@ -834,91 +878,158 @@ footer a:last-child {
         top: 100%;
         left: 0;
         right: 0;
-        padding: 22px 5%;
+        padding: 22px 18px;
         background: var(--navy);
+        border-top: 1px solid #ffffff20;
         flex-direction: column;
         align-items: stretch;
-        gap: 18px;
-        border-top: 1px solid #ffffff20;
+        gap: 0;
     }
 
     .nav.open {
         display: flex;
     }
 
-    .nav .nav-button {
+    .nav a {
+        padding: 12px 8px;
+    }
+
+    .nav .nav-cta {
+        margin-top: 8px;
         text-align: center;
     }
 
-    .hero-content {
-        grid-template-columns: 1fr;
-        padding-top: 65px;
-        padding-bottom: 65px;
-        gap: 45px;
+    .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 35px;
+        padding-block: 50px;
     }
 
     .hero h1 {
-        font-size: 48px;
-        letter-spacing: -2px;
+        font-size: clamp(39px, 8vw, 58px);
     }
 
-    .hero-panel {
-        padding: 24px;
-    }
-
-    .panel-footer {
-        margin: 20px -24px -24px;
-    }
-
-    .section {
-        padding: 65px 0;
-    }
-
-    .section-header {
+    .section-heading {
         display: block;
     }
 
-    .section-header .section-intro {
-        margin-top: 15px;
+    .section-heading .section-description {
+        margin-top: 14px;
     }
 
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .service-card p {
-        min-height: 0;
+    .contact-grid,
+    .about-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
     }
 
     .steps {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
     }
 
     .step,
     .step + .step {
-        padding: 24px 0;
+        padding: 23px 0;
         border-left: 0;
-        border-bottom: 1px solid #dfe3ea;
+        border-bottom: 1px solid #dfe4eb;
     }
 
-    .contact-layout,
-    .about-layout {
-        grid-template-columns: 1fr;
-        gap: 35px;
+    .section {
+        padding-block: 58px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: calc(100% - 28px);
     }
 
-    .request-form {
-        padding: 23px 18px;
+    .topbar-inner {
+        min-height: 34px;
+        font-size: 9px;
+        gap: 6px;
     }
 
-    .form-heading {
-        align-items: flex-start;
+    .topbar-inner span:last-child {
+        text-align: right;
+    }
+
+    .brand {
+        gap: 9px;
+    }
+
+    .brand-logo {
+        width: 39px;
+        height: 39px;
+        font-size: 17px;
+    }
+
+    .brand-name {
+        font-size: 11px;
+        letter-spacing: .9px;
+    }
+
+    .brand-subtitle {
+        font-size: 7px;
+        letter-spacing: .7px;
+    }
+
+    .hero-inner {
+        padding-block: 42px;
+    }
+
+    .hero h1 {
+        letter-spacing: -1.5px;
+        margin-block: 19px;
+    }
+
+    .hero-description {
+        font-size: 13px;
+    }
+
+    .actions {
         flex-direction: column;
     }
 
-    .footer-layout {
-        flex-direction: column;
+    .actions .btn {
+        width: 100%;
+    }
+
+    .hero-points {
+        gap: 10px 13px;
+    }
+
+    .service-preview {
+        padding: 20px;
+    }
+
+    .preview-footer {
+        margin: 18px -20px -20px;
+    }
+
+    .services-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .service-card {
+        padding: 22px;
+    }
+
+    .section-title {
+        font-size: clamp(28px, 8vw, 36px);
+    }
+
+    .form-card {
+        padding: 21px 16px;
+    }
+
+    .email-card {
+        padding: 14px;
+    }
+
+    .footer-grid {
         align-items: flex-start;
+        flex-direction: column;
     }
 }
 
@@ -930,7 +1041,8 @@ footer a:last-child {
     *,
     *::before,
     *::after {
-        transition: none !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
     }
 }
 </style>
@@ -939,14 +1051,15 @@ footer a:last-child {
 <body>
 
 <div class="topbar">
-    <div class="container topbar-content">
+    <div class="container topbar-inner">
         <span>PROFESSIONAL DIGITAL ASSISTANCE</span>
-        <span>HAZRATBAL, SRINAGAR · INDIA</span>
+        <span><strong>HAZRATBAL, SRINAGAR</strong> · INDIA</span>
     </div>
 </div>
 
-<header class="header">
-    <div class="container header-content">
+<header>
+    <div class="container header-inner">
+
         <a href="#home" class="brand" aria-label="MK Enterprises home">
             <span class="brand-logo">MK</span>
             <span>
@@ -955,24 +1068,31 @@ footer a:last-child {
             </span>
         </a>
 
-        <button class="menu-button" id="menuButton"
-                aria-label="Open navigation"
-                aria-expanded="false"
-                aria-controls="navigation">☰</button>
+        <button
+            type="button"
+            class="menu-button"
+            id="menuButton"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            aria-controls="navigation"
+        >☰</button>
 
         <nav class="nav" id="navigation" aria-label="Main navigation">
             <a href="#home">Home</a>
             <a href="#services">Services</a>
             <a href="#process">How It Works</a>
             <a href="#about">About Us</a>
-            <a href="#contact" class="nav-button">Request Service ↗</a>
+            <a href="#contact" class="nav-cta">Request Service ↗</a>
         </nav>
+
     </div>
 </header>
 
 <main>
+
 <section class="hero" id="home">
-    <div class="container hero-content">
+    <div class="container hero-inner">
+
         <div>
             <div class="eyebrow">YOUR DIGITAL SERVICE PARTNER</div>
 
@@ -981,207 +1101,226 @@ footer a:last-child {
             <p class="hero-description">
                 From online applications to document services,
                 MK Enterprises helps make everyday digital tasks
-                simpler, clearer and more convenient.
-                Based in Hazratbal, Srinagar, Jammu & Kashmir.
+                simpler, clearer and more convenient. Based in
+                Hazratbal, Srinagar, Jammu & Kashmir, India.
             </p>
 
-            <div class="hero-actions">
-                <a href="#contact" class="button button-gold">
+            <div class="actions">
+                <a href="#contact" class="btn btn-gold">
                     Request a Service ↗
                 </a>
 
-                <a href="#services" class="button button-outline">
+                <a href="#services" class="btn btn-outline">
                     Explore Services
                 </a>
             </div>
 
-            <div class="hero-note">
+            <div class="hero-points">
                 <span>✓ Clear communication</span>
                 <span>✓ Email-based requests</span>
                 <span>✓ India-focused assistance</span>
             </div>
         </div>
 
-        <aside class="hero-panel">
-            <div class="panel-top">
+        <aside class="service-preview">
+            <div class="preview-head">
                 <strong>MK SERVICE DESK</strong>
-                <span class="panel-badge">DIGITAL ASSISTANCE</span>
+                <span class="badge">DIGITAL ASSISTANCE</span>
             </div>
 
-            <h2 class="panel-heading">
-                Your task.<br>Our assistance.
-            </h2>
+            <h2>Your task.<br>Our assistance.</h2>
 
-            <p class="panel-description">
+            <p class="preview-description">
                 Tell us what you need help with.
             </p>
 
-            <div class="panel-service">
-                <span class="panel-icon">▤</span>
+            <div class="preview-item">
+                <span class="preview-icon">▤</span>
                 <div>
                     <strong>Forms & Applications</strong>
                     <small>Application and registration assistance</small>
                 </div>
             </div>
 
-            <div class="panel-service">
-                <span class="panel-icon">▧</span>
+            <div class="preview-item">
+                <span class="preview-icon">▧</span>
                 <div>
                     <strong>Documents & Printing</strong>
                     <small>Scanning, printing and PDF support</small>
                 </div>
             </div>
 
-            <div class="panel-service">
-                <span class="panel-icon">◎</span>
+            <div class="preview-item">
+                <span class="preview-icon">◎</span>
                 <div>
                     <strong>Digital Services</strong>
                     <small>Practical online assistance</small>
                 </div>
             </div>
 
-            <div class="panel-footer">
+            <div class="preview-footer">
                 <span>MK ENTERPRISES</span> · HAZRATBAL, SRINAGAR
             </div>
         </aside>
+
     </div>
 </section>
 
-<section class="section services-section" id="services">
+<section class="section services" id="services">
     <div class="container">
-        <div class="section-header">
+
+        <div class="section-heading">
             <div>
                 <div class="section-label">OUR SERVICES</div>
                 <h2 class="section-title">
-                    Everything starts<br><span>with the right support.</span>
+                    Digital support.<br><span>Made simple.</span>
                 </h2>
             </div>
 
-            <p class="section-intro">
-                Select a service to begin your request.
-                Actual availability, eligibility, fees and approvals
-                depend on the relevant service provider or authority.
+            <p class="section-description">
+                Choose a service to begin your request. Availability,
+                eligibility, official fees and approvals depend on the
+                relevant service provider or authority.
             </p>
         </div>
 
         <div class="services-grid">
 
             <article class="service-card">
-                <div class="service-card-top">
+                <div class="service-card-head">
                     <span class="service-icon">▤</span>
                     <span class="service-number">01 / FORMS</span>
                 </div>
                 <h3>Online Forms & Applications</h3>
                 <p>Assistance with online forms, admissions, examination applications and registrations.</p>
-                <button class="service-link" data-service="Online forms and applications">
-                    Select service <span>↗</span>
-                </button>
+                <button class="service-select" type="button" data-service="Online forms and applications">Select service ↗</button>
             </article>
 
             <article class="service-card">
-                <div class="service-card-top">
+                <div class="service-card-head">
                     <span class="service-icon">▧</span>
                     <span class="service-number">02 / DOCUMENTS</span>
                 </div>
                 <h3>Printing & Document Services</h3>
                 <p>Printing, scanning, photocopying, lamination, PDF conversion and document formatting.</p>
-                <button class="service-link" data-service="Printing and document services">
-                    Select service <span>↗</span>
-                </button>
+                <button class="service-select" type="button" data-service="Printing and document services">Select service ↗</button>
             </article>
 
             <article class="service-card">
-                <div class="service-card-top">
+                <div class="service-card-head">
                     <span class="service-icon">◎</span>
                     <span class="service-number">03 / PHOTOS</span>
                 </div>
                 <h3>Photo Services</h3>
                 <p>Passport-size photo preparation, photo editing and photo-frame requests.</p>
-                <button class="service-link" data-service="Photo services">
-                    Select service <span>↗</span>
-                </button>
+                <button class="service-select" type="button" data-service="Photo services">Select service ↗</button>
             </article>
 
             <article class="service-card">
-                <div class="service-card-top">
+                <div class="service-card-head">
                     <span class="service-icon">▣</span>
                     <span class="service-number">04 / APPLICATIONS</span>
                 </div>
                 <h3>PAN & Passport Assistance</h3>
                 <p>Application guidance and document preparation for eligible services.</p>
-                <button class="service-link" data-service="PAN and passport assistance">
-                    Select service <span>↗</span>
-                </button>
+                <button class="service-select" type="button" data-service="PAN and passport assistance">Select service ↗</button>
             </article>
 
             <article class="service-card">
-                <div class="service-card-top">
+                <div class="service-card-head">
                     <span class="service-icon">⌘</span>
                     <span class="service-number">05 / PORTALS</span>
                 </div>
                 <h3>Government & Transport Portals</h3>
                 <p>Assistance navigating relevant official government and Parivahan portals.</p>
-                <button class="service-link" data-service="Government and transport portals">
-                    Select service <span>↗</span>
-                </button>
+                <button class="service-select" type="button" data-service="Government and transport portals">Select service ↗</button>
             </article>
 
             <article class="service-card">
-                <div class="service-card-top">
+                <div class="service-card-head">
+                    <span class="service-icon">▣</span>
+                    <span class="service-number">06 / REGISTRATION</span>
+                </div>
+                <h3>Business Registration Assistance</h3>
+                <p>Guidance with eligible business registrations and online applications.</p>
+                <button class="service-select" type="button" data-service="Business registration assistance">Select service ↗</button>
+            </article>
+
+            <article class="service-card">
+                <div class="service-card-head">
+                    <span class="service-icon">▤</span>
+                    <span class="service-number">07 / PDF</span>
+                </div>
+                <h3>PDF & File Services</h3>
+                <p>PDF conversion, document resizing, file preparation and downloading assistance.</p>
+                <button class="service-select" type="button" data-service="PDF and file services">Select service ↗</button>
+            </article>
+
+            <article class="service-card">
+                <div class="service-card-head">
+                    <span class="service-icon">▧</span>
+                    <span class="service-number">08 / DOCUMENTS</span>
+                </div>
+                <h3>Document Scanning & Downloading</h3>
+                <p>Document scanning, digital copies, downloading and basic file organisation.</p>
+                <button class="service-select" type="button" data-service="Scanning and downloading services">Select service ↗</button>
+            </article>
+
+            <article class="service-card">
+                <div class="service-card-head">
                     <span class="service-icon">＋</span>
-                    <span class="service-number">06 / OTHER</span>
+                    <span class="service-number">09 / OTHER</span>
                 </div>
                 <h3>Other Digital Services</h3>
-                <p>Have another online task? Send your request and we will review it.</p>
-                <button class="service-link" data-service="Other digital services">
-                    Select service <span>↗</span>
-                </button>
+                <p>Need assistance with another online task? Send your request for review.</p>
+                <button class="service-select" type="button" data-service="Other digital services">Select service ↗</button>
             </article>
 
         </div>
 
-        <div class="disclaimer">
+        <div class="notice">
             <strong>Service notice:</strong>
             MK Enterprises is an independent digital-assistance business,
-            not a government department. Government services, official fees,
-            eligibility and approvals remain subject to the relevant authority.
-            Authorisation is not implied.
+            not a government department. Government services, official
+            fees, eligibility and approvals remain subject to the relevant
+            authority. No government authorisation is implied.
         </div>
+
     </div>
 </section>
 
-<section class="section process-section" id="process">
+<section class="section process" id="process">
     <div class="container">
-        <div class="section-label">HOW IT WORKS</div>
 
-        <h2 class="section-title">
-            Simple steps.<br><span>Clear communication.</span>
-        </h2>
+        <div class="section-label">HOW IT WORKS</div>
+        <h2 class="section-title">Three steps.<br><span>One simple process.</span></h2>
 
         <div class="steps">
             <article class="step">
                 <span class="step-number">STEP 01</span>
                 <h3>Choose your service</h3>
-                <p>Select the digital service you need help with.</p>
+                <p>Select the digital service you need assistance with.</p>
             </article>
 
             <article class="step">
                 <span class="step-number">STEP 02</span>
-                <h3>Share your request</h3>
-                <p>Enter your name, Indian mobile number and basic request details.</p>
+                <h3>Enter your details</h3>
+                <p>Provide your name, Indian mobile number and basic request details.</p>
             </article>
 
             <article class="step">
                 <span class="step-number">STEP 03</span>
                 <h3>Send your email</h3>
-                <p>Review the prepared email and press Send in your email application.</p>
+                <p>Review the prepared email in Gmail and press Send to submit your request.</p>
             </article>
         </div>
+
     </div>
 </section>
 
-<section class="section contact-section" id="contact">
-    <div class="container contact-layout">
+<section class="section contact" id="contact">
+    <div class="container contact-grid">
+
         <div>
             <div class="section-label">CONTACT OUR SERVICE DESK</div>
 
@@ -1189,104 +1328,105 @@ footer a:last-child {
                 How can we<br><span>help you today?</span>
             </h2>
 
-            <p class="section-intro">
-                Submit your service request using the form.
-                Your email application will open with the details prepared.
+            <p class="section-description">
+                Complete the request form. Gmail will open with your
+                service details and our email address already filled in.
             </p>
 
-            <div class="contact-email">
+            <div class="email-card">
                 <span class="email-icon">✉</span>
                 <div>
                     <small>OFFICIAL CONTACT EMAIL</small>
-                    <strong>limitedmk67@gmail.com</strong>
+                    <a href="mailto:limitedmk67@gmail.com">limitedmk67@gmail.com</a>
                 </div>
             </div>
 
             <div class="privacy-note">
                 <strong>Privacy reminder</strong><br>
-                Do not include passwords, OTPs, Aadhaar numbers,
-                bank details or sensitive identity information.
-                The form does not upload or store your information on a server.
+                Never include passwords, OTPs, bank details or sensitive
+                identity information in the request form. This static
+                website does not send form data to a website server.
             </div>
         </div>
 
-        <form class="request-form" id="serviceForm">
+        <form class="form-card" id="serviceForm">
+
             <div class="form-heading">
                 <strong>NEW SERVICE REQUEST</strong>
                 <small>* Required fields</small>
             </div>
 
-            <label for="fullName">Full Name <span>*</span></label>
-            <input
-                id="fullName"
-                name="fullName"
-                type="text"
-                maxlength="80"
-                autocomplete="name"
-                required
-            >
-
-            <label for="phone">Indian Mobile Number <span>*</span></label>
-            <div class="phone-wrap">
-                <span class="phone-prefix">+91 🇮🇳</span>
-                <input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    inputmode="numeric"
-                    autocomplete="tel-national"
-                    maxlength="10"
-                    pattern="[6-9][0-9]{9}"
-                    title="Enter a 10-digit Indian mobile number beginning with 6, 7, 8 or 9."
-                    placeholder="10-digit mobile number"
-                    required
-                >
+            <div class="form-field">
+                <label for="fullName">Full Name <span class="required">*</span></label>
+                <input id="fullName" name="fullName" type="text" maxlength="80" autocomplete="name" required>
             </div>
 
-            <label for="service">Service Required <span>*</span></label>
-            <select id="service" name="service" required>
-                <option value="">Choose a service</option>
-                <option>Online forms and applications</option>
-                <option>Printing and document services</option>
-                <option>Photocopy and lamination</option>
-                <option>Photo services</option>
-                <option>PAN and passport assistance</option>
-                <option>Government and transport portals</option>
-                <option>Admissions and examination forms</option>
-                <option>Registration assistance</option>
-                <option>Other digital services</option>
-            </select>
+            <div class="form-field">
+                <label for="phone">Indian Mobile Number <span class="required">*</span></label>
+                <div class="phone-box">
+                    <span>+91 🇮🇳</span>
+                    <input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        inputmode="numeric"
+                        autocomplete="tel-national"
+                        maxlength="10"
+                        pattern="[6-9][0-9]{9}"
+                        title="Enter a 10-digit Indian mobile number beginning with 6, 7, 8 or 9."
+                        placeholder="10-digit mobile number"
+                        required
+                    >
+                </div>
+            </div>
 
-            <label for="details">Request Details</label>
-            <textarea
-                id="details"
-                name="details"
-                maxlength="1000"
-                rows="4"
-                placeholder="Briefly describe the assistance you need."
-            ></textarea>
+            <div class="form-field">
+                <label for="service">Service Required <span class="required">*</span></label>
+                <select id="service" name="service" required>
+                    <option value="">Choose a service</option>
+                    <option>Online forms and applications</option>
+                    <option>Printing and document services</option>
+                    <option>Photocopy and lamination</option>
+                    <option>Photo services</option>
+                    <option>PAN and passport assistance</option>
+                    <option>Government and transport portals</option>
+                    <option>Business registration assistance</option>
+                    <option>PDF and file services</option>
+                    <option>Scanning and downloading services</option>
+                    <option>Admissions and examination forms</option>
+                    <option>Other digital services</option>
+                </select>
+            </div>
 
-            <label class="consent">
+            <div class="form-field">
+                <label for="details">Request Details</label>
+                <textarea id="details" name="details" maxlength="1000" rows="4" placeholder="Briefly describe the assistance you need."></textarea>
+            </div>
+
+            <label class="consent" for="consent">
                 <input type="checkbox" id="consent" required>
-                <span>I confirm my details are correct and agree to open my email application to send this request.</span>
+                <span>I confirm that my details are correct and agree to open my email application to send this request.</span>
             </label>
 
-            <button type="submit" class="button button-gold submit-button">
+            <button type="submit" class="btn btn-gold submit-button">
                 Prepare Email Request ↗
             </button>
 
             <p class="form-note">
-                This form prepares an email; it does not send it automatically.
-                Review the message and press Send in your email application.
+                Your browser will open Gmail to prepare the message.
+                You must review and send the email yourself.
             </p>
 
             <p class="form-status" id="status" role="status" aria-live="polite"></p>
+
         </form>
+
     </div>
 </section>
 
-<section class="section about-section" id="about">
-    <div class="container about-layout">
+<section class="section about" id="about">
+    <div class="container about-grid">
+
         <div>
             <div class="section-label">ABOUT MK ENTERPRISES</div>
 
@@ -1296,9 +1436,9 @@ footer a:last-child {
 
             <p class="about-copy">
                 MK Enterprises is an online digital-service assistance
-                business based in Hazratbal, Srinagar, Jammu & Kashmir, India.
-                Our aim is to make common digital tasks easier through
-                practical assistance and clear communication.
+                business based in Hazratbal, Srinagar, Jammu & Kashmir,
+                India. Our aim is to make common digital tasks easier
+                through practical assistance and clear communication.
             </p>
         </div>
 
@@ -1311,12 +1451,15 @@ footer a:last-child {
                 the relevant provider or authority.
             </p>
         </div>
+
     </div>
 </section>
+
 </main>
 
 <footer>
-    <div class="container footer-layout">
+    <div class="container footer-grid">
+
         <div>
             <div class="footer-brand">MK ENTERPRISES</div>
             <p>Online Digital Services · Hazratbal, Srinagar, India</p>
@@ -1328,32 +1471,66 @@ footer a:last-child {
         </p>
 
         <a href="#home">Back to top ↑</a>
+
     </div>
 </footer>
-
 
 <script>
 "use strict";
 
 const form = document.getElementById("serviceForm");
-const status = document.getElementById("status");
+const statusBox = document.getElementById("status");
+const menuButton = document.getElementById("menuButton");
+const navigation = document.getElementById("navigation");
 
-document.getElementById("year").textContent =
-    new Date().getFullYear();
+document.getElementById("year").textContent = new Date().getFullYear();
 
-document.querySelectorAll("[data-service]").forEach(function(button) {
-    button.addEventListener("click", function() {
-        document.getElementById("service").value =
-            button.dataset.service;
+menuButton.addEventListener("click", function () {
+    const isOpen = navigation.classList.toggle("open");
 
-        document.getElementById("contact").scrollIntoView({
-            behavior: "smooth"
-        });
+    menuButton.setAttribute("aria-expanded", String(isOpen));
+    menuButton.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation" : "Open navigation"
+    );
+
+    menuButton.textContent = isOpen ? "✕" : "☰";
+});
+
+navigation.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+        navigation.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Open navigation");
+        menuButton.textContent = "☰";
     });
 });
 
-form.addEventListener("submit", function(event) {
+document.querySelectorAll("[data-service]").forEach(function (button) {
+    button.addEventListener("click", function () {
+        const serviceSelect = document.getElementById("service");
+        const requestedService = button.dataset.service;
+
+        for (const option of serviceSelect.options) {
+            if (option.text === requestedService) {
+                serviceSelect.value = option.value;
+                break;
+            }
+        }
+
+        document.getElementById("contact").scrollIntoView({
+            behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+                ? "auto"
+                : "smooth"
+        });
+
+        serviceSelect.focus({ preventScroll: true });
+    });
+});
+
+form.addEventListener("submit", function (event) {
     event.preventDefault();
+    statusBox.textContent = "";
 
     if (!form.reportValidity()) {
         return;
@@ -1365,13 +1542,15 @@ form.addEventListener("submit", function(event) {
     const details = document.getElementById("details").value.trim();
 
     if (name.length < 2) {
-        status.textContent = "Please enter your full name.";
+        statusBox.textContent = "Please enter your full name.";
+        document.getElementById("fullName").focus();
         return;
     }
 
     if (!/^[6-9][0-9]{9}$/.test(phone)) {
-        status.textContent =
+        statusBox.textContent =
             "Enter a valid 10-digit Indian mobile number.";
+        document.getElementById("phone").focus();
         return;
     }
 
@@ -1381,6 +1560,7 @@ form.addEventListener("submit", function(event) {
         "NEW CUSTOMER SERVICE REQUEST",
         "",
         "Business: MK ENTERPRISES",
+        "Location: Hazratbal, Srinagar, Jammu & Kashmir, India",
         "Customer Name: " + name,
         "Mobile Number: +91 " + phone,
         "Requested Service: " + service,
@@ -1389,20 +1569,30 @@ form.addEventListener("submit", function(event) {
         details || "No additional details provided."
     ].join("\n");
 
-    const gmailURL =
-        "https://mail.google.com/mail/?view=cm&fs=1" +
-        "&to=" + encodeURIComponent("limitedmk67@gmail.com") +
-        "&su=" + encodeURIComponent(subject) +
-        "&body=" + encodeURIComponent(body);
+    const gmailURL = new URL("https://mail.google.com/mail/");
+    gmailURL.searchParams.set("view", "cm");
+    gmailURL.searchParams.set("fs", "1");
+    gmailURL.searchParams.set("to", "limitedmk67@gmail.com");
+    gmailURL.searchParams.set("su", subject);
+    gmailURL.searchParams.set("body", body);
 
-    status.textContent =
-        "Opening Gmail with your service request...";
+    const emailWindow = window.open(
+        gmailURL.toString(),
+        "_blank",
+        "noopener,noreferrer"
+    );
 
-    window.open(gmailURL, "_blank", "noopener,noreferrer");
+    if (emailWindow) {
+        statusBox.textContent =
+            "Gmail has been requested in a new tab. Review your email and press Send.";
+    } else {
+        statusBox.innerHTML =
+            'Your browser blocked the new tab. <a href="' +
+            gmailURL.toString().replace(/&/g, "&amp;").replace(/"/g, "&quot;") +
+            '" target="_blank" rel="noopener noreferrer">Click here to open your prepared Gmail message.</a>';
+    }
 });
 </script>
-
-
 
 </body>
 </html>
