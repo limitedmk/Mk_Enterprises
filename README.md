@@ -21,7 +21,7 @@
     --border: #e6e9ef;
 }
 
-* {
+ {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -1331,7 +1331,6 @@ footer a:last-child {
     </div>
 </footer>
 
-```html
 <script>
 "use strict";
 
@@ -1401,9 +1400,5 @@ form.addEventListener("submit", function(event) {
     window.open(gmailURL, "_blank", "noopener,noreferrer");
 });
 </script>
-
-
-
 </body>
 </html>
-
